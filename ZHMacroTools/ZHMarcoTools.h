@@ -27,6 +27,7 @@
 #define IMAGEWithMainBundle(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
 #define IMAGENAME(B) [UIImage imageNamed:B]
 #define IMAGENAMEWithOri(A)  [[UIImage imageNamed:A]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+#define IMAGENAME_MODE(a,m) [[UIImage imageNamed:a]imageWithRenderingMode:m]
 
 #pragma mark - 屏幕
 #define kSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
@@ -87,9 +88,21 @@ return sharedInstance;\
 #define VIEWFRAME(view) view.frame
 #define VIEWSIZE(view) view.frame.size
 
-#pragma mark - other
-///block 检查
+#pragma mark - dele执行
+
+#define DELETE_EXEC(delegate,method) if([delegate respondsToSelector:@selector(method)]){[delegate method];}
+
+#pragma mark - block
+//block 检查
 #define BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); }
+//block 声明
+#define DECLARE_BLOCK_REVALUE(name,returnType,...) @property(nonatomic,copy) returnType(^name)(__VA_ARGS__);
+#define DECLARE_BLOCK(name,...) DECLARE_BLOCK_REVALUE(name,void,__VA_ARGS__);
+
+#pragma mark - 设备判断
+#define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+
+#pragma mark - other
 ///类名
 #define CLASSNAME(cls) NSStringFromClass([cls class])
 ///一半
@@ -100,9 +113,7 @@ return sharedInstance;\
 #define MIRROR CGAffineTransformMakeScale(-1,1)
 //bundle main
 #define MAINBUNDLE(NAME) [[NSBundle mainBundle] pathForResource:NAME ofType:nil]
-
+//打开链接
 #define OPENURL(UrlStr) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UrlStr] options:@{} completionHandler:nil]
-
-#define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 
 #endif /* ZHMarcoTools */
