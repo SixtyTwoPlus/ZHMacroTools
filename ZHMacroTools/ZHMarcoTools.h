@@ -82,6 +82,11 @@ return sharedInstance;\
 #define DELog(format, ...)
 #endif
 
+#pragma mark - size
+#define VIEWBOUNDS(view) view.bounds
+#define VIEWFRAME(view) view.frame
+#define VIEWSIZE(view) view.frame.size
+
 #pragma mark - other
 ///block 检查
 #define BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); }
