@@ -90,7 +90,7 @@ return sharedInstance;\
 
 #pragma mark - dele执行
 
-#define DELETE_EXEC(delegate,method) if([delegate respondsToSelector:@selector(method)]){[delegate method];}
+#define DELEGETE_EXEC(delegate,method) if([delegate respondsToSelector:@selector(method)]){[delegate method];}
 
 #pragma mark - block
 //block 检查
