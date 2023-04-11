@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary      = "this is iOS objc macro tools"
   s.description  = <<-DESC 'ZHMacroTools'
                    DESC
-  s.homepage     = "hhttps://github.com/SixtyTwoPlus/ZHMacroTools.git"
+  s.homepage     = "https://github.com/SixtyTwoPlus/ZHMacroTools.git"
 
   s.license      = "MIT"
 
