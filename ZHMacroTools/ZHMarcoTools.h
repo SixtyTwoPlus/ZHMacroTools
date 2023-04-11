@@ -88,9 +88,9 @@ return sharedInstance;\
 #define VIEWFRAME(view) view.frame
 #define VIEWSIZE(view) view.frame.size
 
-#pragma mark - dele执行
+#pragma mark - delegate检查
 
-#define DELEGETE_EXEC(delegate,method) if([delegate respondsToSelector:@selector(method)]){[delegate method];}
+#define DELEGET_CHECK(delegate,selector) (delegate && [delegate respondsToSelector:selector])
 
 #pragma mark - block
 //block 检查
