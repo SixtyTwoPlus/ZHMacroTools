@@ -27,7 +27,4 @@ xcshareddata
 
 .DS_Store
 */.DS_Store
-*.xcuserstate
-*.xcuserstate
-*.xcuserstate
-ZHMacroToolsExample/ZHMacroToolsExample.xcodeproj/project.xcworkspace/xcuserdata/zhouhailin.xcuserdatad/UserInterfaceState.xcuserstate
+ZHMacroToolsExample
