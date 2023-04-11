@@ -9,11 +9,11 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZHMacroTools"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "this is iOS objc macro tools"
   s.description  = <<-DESC 'ZHMacroTools'
                    DESC
-  s.homepage     = "https://github.com/number-62/ZHMacroTools.git"
+  s.homepage     = "hhttps://github.com/SixtyTwoPlus/ZHMacroTools.git"
 
   s.license      = "MIT"
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/number-62/ZHMacroTools.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/SixtyTwoPlus/ZHMacroTools.git", :tag => "v#{s.version}" }
 
   s.source_files = 'ZHMacroTools/*'
 
