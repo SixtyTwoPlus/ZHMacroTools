@@ -63,16 +63,17 @@ return sharedInstance;\
 }
 
 #pragma mark - 线程执行
-#define GCD_DO_BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
-#define GCD_DO_MAIN(block) dispatch_async(dispatch_get_main_queue(), block);
-#define GCD_DO_AFTER(t,block) dispatch_after ( dispatch_time ( DISPATCH_TIME_NOW , t * NSEC_PER_SEC ) , dispatch_get_main_queue ( ) , block);
-#define GCD_DO_AFETER_QUEUE(t,queue,block) dispatch_after ( dispatch_time ( DISPATCH_TIME_NOW , t * NSEC_PER_SEC ) , queue , block);
+
+NS_INLINE void GCD_DO_BACK(dispatch_block_t block){ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);}
+NS_INLINE void GCD_DO_MAIN(dispatch_block_t block) {dispatch_async(dispatch_get_main_queue(), block);}
+NS_INLINE void GCD_DO_AFTER_QUEUE(NSInteger second,dispatch_queue_t queue,dispatch_block_t block){dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(second * NSEC_PER_SEC)),queue, block);}
+NS_INLINE void GCD_DO_AFTER_MAIN(NSInteger second,dispatch_block_t block){GCD_DO_AFTER_QUEUE(second, dispatch_get_main_queue(), block);}
 
 #pragma mark - 角度弧度互转
 ///角度转弧度
-#define degreesToRadian(x) (M_PI * (x) / 180.0)
+#define DEGREES_2_RADIAN(x) (M_PI * (x) / 180.0)
 ///弧度转角度
-#define radianToDegrees(radian) (radian*180.0)/(M_PI)
+#define RADIAN_2_DEGREES(radian) ((radian*180.0)/(M_PI))
 
 #pragma mark - 调试
 #ifdef DEBUG
@@ -83,21 +84,17 @@ return sharedInstance;\
 #define DELog(format, ...)
 #endif
 
-#pragma mark - size
-#define VIEWBOUNDS(view) view.bounds
-#define VIEWFRAME(view) view.frame
-#define VIEWSIZE(view) view.frame.size
-
 #pragma mark - delegate检查
 
-#define DELEGET_CHECK(delegate,selector) (delegate && [delegate respondsToSelector:selector])
+#define DELEGETE_CHECK(delegate,selector) (delegate && [delegate respondsToSelector:selector])
 
 #pragma mark - block
 //block 检查
 #define BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); }
 //block 声明
-#define DECLARE_BLOCK_REVALUE(name,returnType,...) @property(nonatomic,copy) returnType(^name)(__VA_ARGS__);
-#define DECLARE_BLOCK(name,...) DECLARE_BLOCK_REVALUE(name,void,__VA_ARGS__);
+#define DECLARE_BLOCK(return,name,...) @property(nonatomic,copy) return(^name)(__VA_ARGS__);
+
+#define DECLARE_BLOCK_VOID(name) DECLARE_BLOCK(void,name,void)
 
 #pragma mark - 设备判断
 #define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
