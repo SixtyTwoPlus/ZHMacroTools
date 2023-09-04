@@ -30,9 +30,9 @@
 ///style --- > NSParagraphStyle
 #define ZHParagraphStyleAttribute(style) NSParagraphStyleAttributeName:style
 ///color --- >  UIColor, default blackColor
-#define ZHForegroundColorAttributeName(color) NSForegroundColorAttributeName:color
+#define ZHForegroundColorAttribute(color) NSForegroundColorAttributeName:color
 ///color ---> UIColor, default nil: no background
-#define ZHBackgroundColorAttributeName(color) NSBackgroundColorAttributeName:color
+#define ZHBackgroundColorAttribute(color) NSBackgroundColorAttributeName:color
 ///number --- > NSNumber  containing integer, default 1: default ligatures, 0: no ligatures
 #define ZHLigatureAttribute(number) NSLigatureAttributeName:number
 ///number --- > NSNumber containing floating point value, in points; amount to modify default kerning. 0 means kerning is disabled.
