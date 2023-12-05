@@ -74,7 +74,7 @@
 #define COLOR_RANDOM [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1]
 #define COLOR_HEX(s) [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
 #define COLOR_HEX_ALPHA(s,a) [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:a]
-#define COLOR_BLOACK [UIColor blackColor]
+#define COLOR_BLACK [UIColor blackColor]
 #define COLOR_DGRAY [UIColor darkGrayColor]
 #define COLOR_LGRAY [UIColor lightGrayColor]
 #define COLOR_WHITE [UIColor whiteColor]

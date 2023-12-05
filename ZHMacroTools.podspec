@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZHMacroTools"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "this is iOS objc macro tools"
   s.description  = <<-DESC 'ZHMacroTools'
                    DESC
